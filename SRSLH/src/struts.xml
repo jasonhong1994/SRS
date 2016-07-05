@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="default" namespace="/"  extends="json-default" >
+    
+    	<action name="login" class="com.srs.action.LoginAction">
+    		<result name="student">index.jsp</result>
+    		<result name="professor">index2.jsp</result>
+    		<result name="login">login.html</result>
+    	</action>
+    	<action name="logout" class="com.srs.action.LoginAction" method="logout">
+    		<result>login.html</result>
+    	</action>
+    	<action name="planOfStudy" class="com.srs.action.PlanAction">
+    		<result>index.jsp</result>
+    	</action>
+    	<!-- ajax异步所用action -->
+    	<action name="section" class="com.srs.action.SectionAction">
+    		<result type="json">
+				<param name="root">root</param>
+			</result>
+    	</action>
+  	    <action name="inSection" class="com.srs.action.SectionAction" method="inSection">
+    	</action>
+    	<action name="hasCourse" class="com.srs.action.HasCourseAction">
+    		<result>index.jsp</result>
+    	</action>
+    	<action name="courseNow" class="com.srs.action.ProfessorOperationAction">
+    		<result>index.jsp</result>
+    	</action>
+    	<action name="courseSearch" class="com.srs.action.ProfessorOperationAction" method="query" >
+    		<result>course.jsp</result>
+    	</action>
+    	<action name="editCourse" class="com.srs.action.ProfessorOperationAction" method="edit" >
+    		<result>course.jsp</result>
+    	</action>
+    	<action name="addCourse" class="com.srs.action.ProfessorOperationAction" method="add" >
+    		<result>course.jsp</result>
+    	</action>
+    	<action name="delCourse" class="com.srs.action.ProfessorOperationAction" method="del" >
+    		<result>course.jsp</result>
+    	</action>
+    </package>
+</struts>
